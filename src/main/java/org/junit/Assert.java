@@ -955,4 +955,20 @@ public class Assert {
             Matcher<? super T> matcher) {
         MatcherAssert.assertThat(reason, actual, matcher);
     }
+   
+    /*Aggiungere alla classe org.junit.Assert 
+     * un metodo assertGreaterThan(T o1, T o2, java.util.Comparator<T> comparator) 
+     * che verifichi che il primo oggetto sia più grande del secondo
+     *  in base al comparator passato. Compilare, committare il lavoro 
+     *  svolto.
+     */
+    
+    public static <T> boolean assertGreaterThan(T o1, T o2, java.util.Comparator<T> comparator) {
+        
+     return comparator.compare(o1, o2) > 0 ;
+
+             
+        
+    
+    }  
 }
