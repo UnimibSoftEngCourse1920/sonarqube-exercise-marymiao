@@ -648,4 +648,20 @@ public class AssertionTest {
     public void assertNotEqualsIgnoresFloatDeltaOnNaN() {
         assertNotEquals(Float.NaN, Float.NaN, 1f);
     }
+  
+ /*Aggiungere in org.junit.tests.assertion.AssertionTest
+  *  un test che verifichi il funzionamento del metodo:
+  *   assertGreaterThan(T o1, T o2, java.util.Comparator<T> comparator)
+  *   nella classe org.junit.Assert ;
+  *   Usare come linea guida il metodo di test equals().
+  *    Compilare e committare.   
+  */
+    
+    @Test(expected = AssertionError.class)
+    public void assertGreaterThan() {
+        Object o1 = new Object();
+        Object o2 = new Object();
+        assertNotEquals(o1, o2);
+    }
+      
 }
