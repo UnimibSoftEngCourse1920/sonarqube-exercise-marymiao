@@ -661,7 +661,8 @@ public class AssertionTest {
     public void assertGreaterThan() {
         Object o1 = new Object();
         Object o2 = new Object();
-        assertNotEquals(o1, o2);
+        assertEquals(o1, o2);
+        
     }
       
 }
