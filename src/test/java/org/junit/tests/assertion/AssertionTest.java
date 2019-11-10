@@ -1002,4 +1002,41 @@ public class AssertionTest {
             }
         };
     }
+    /*metodo:
+     *     public boolean assertGreaterThan(Number o1, Number o2) {
+        if(o1 instanceof Double && o2 instanceof Double) 
+            if (o1.doubleValue() > o2.doubleValue()) return true;
+            else return false;
+        if(o1 instanceof Float && o2 instanceof Float) 
+            if (o1.floatValue() > o2.floatValue()) return true;
+            else return false;
+        if(o1 instanceof Integer && o2 instanceof Integer) 
+            if (o1.intValue() > o2.intValue()) return true;
+            else return false;
+        return false;
+        
+        }
+     */
+    @Test
+    public void assertGreaterThan() {
+        Integer o1= new Integer(ASSERTION_ERROR_EXPECTED);
+        Integer o2 = new Integer(ASSERTION_ERROR_EXPECTED);
+        Float o3= new Float(ASSERTION_ERROR_EXPECTED);
+        Float o4 = new Float(ASSERTION_ERROR_EXPECTED);
+        Double o5= new Double(ASSERTION_ERROR_EXPECTED);
+        Double o6 = new Double(ASSERTION_ERROR_EXPECTED);
+            assertEquals(o1, o2);
+            assertEquals(o3, o4);
+            assertEquals(o5, o6);
+           
+            
+            
+ 
+    }
+    
+    
+    
+    
+    
+    
 }
