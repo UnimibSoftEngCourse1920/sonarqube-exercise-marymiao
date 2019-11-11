@@ -1,6 +1,7 @@
 package org.junit.tests.assertion;
 
 import static org.hamcrest.CoreMatchers.equalTo;
+
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertArrayEquals;
@@ -22,7 +23,7 @@ import org.junit.ComparisonFailure;
 import org.junit.Test;
 import org.junit.function.ThrowingRunnable;
 import org.junit.internal.ArrayComparisonFailure;
-
+import static org.junit.Assert.assertTrue;
 /**
  * Tests for {@link org.junit.Assert}
  */
@@ -810,7 +811,7 @@ public class AssertionTest {
         try {
             assertNotEquals(value1, value2);
         } catch (AssertionError e) {
-            assertTrue(e.getMessage().contains(value1.toString()));
+            Assert.assertTrue(e.getMessage().contains(value1.toString()));
             return;
         }
 
@@ -1018,25 +1019,34 @@ public class AssertionTest {
         }
      */
     @Test
-    public void assertGreaterThan() {
-        Integer o1= new Integer(ASSERTION_ERROR_EXPECTED);
+     public void assertGreaterThan() {
+      
+       /* Integer o1= new Integer();
         Integer o2 = new Integer(ASSERTION_ERROR_EXPECTED);
         Float o3= new Float(ASSERTION_ERROR_EXPECTED);
         Float o4 = new Float(ASSERTION_ERROR_EXPECTED);
         Double o5= new Double(ASSERTION_ERROR_EXPECTED);
         Double o6 = new Double(ASSERTION_ERROR_EXPECTED);
-            assertEquals(o1, o2);
-            assertEquals(o3, o4);
-            assertEquals(o5, o6);
+            assertTrue(o1, o2);
+            assertTrue(o3, o4);
+            assertTrue(o5, o6);
+      */
+            Integer o1 = new Integer(1);
+            Integer o2 = new Integer(1);
+            Float o3= new Float(1);
+            Float o4 = new Float(1);
+            Double o5= new Double(1);
+            Double o6 = new Double(1);
+            
+            
            
+             assertEquals(o1, o2);
+             assertEquals(o3, o4);
+             assertEquals(o5, o6);
             
-            
- 
+          
+    
     }
-    
-    
-    
-    
     
     
 }
