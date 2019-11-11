@@ -964,6 +964,7 @@ public class Assert {
         MatcherAssert.assertThat(reason, actual, matcher);
     }
 
+
     /**
      * Asserts that {@code runnable} throws an exception of type {@code expectedThrowable} when
      * executed. If it does, the exception object is returned. If it does not throw an exception, an
@@ -1031,4 +1032,22 @@ public class Assert {
     private static String buildPrefix(String message) {
         return message != null && message.length() != 0 ? message + ": " : "";
     }
+
+   
+    /*Aggiungere alla classe org.junit.Assert 
+     * un metodo assertGreaterThan(T o1, T o2, java.util.Comparator<T> comparator) 
+     * che verifichi che il primo oggetto sia più grande del secondo
+     *  in base al comparator passato. Compilare, committare il lavoro 
+     *  svolto.
+     */
+    
+    public static <T> boolean assertGreaterThan(T o1, T o2, java.util.Comparator<T> comparator) {
+        
+     return comparator.compare(o1, o2) > 0 ;
+
+             
+        
+    
+    }  
+
 }
