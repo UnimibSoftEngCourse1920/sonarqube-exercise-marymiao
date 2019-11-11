@@ -1033,6 +1033,7 @@ public class Assert {
         return message != null && message.length() != 0 ? message + ": " : "";
     }
 
+
    
     /*Aggiungere alla classe org.junit.Assert 
      * un metodo assertGreaterThan(T o1, T o2, java.util.Comparator<T> comparator) 
@@ -1049,5 +1050,20 @@ public class Assert {
         
     
     }  
+
+
+    public boolean assertGreaterThan(Number o1, Number o2) {
+        if(o1 instanceof Double && o2 instanceof Double) 
+            if (o1.doubleValue() > o2.doubleValue()) return true;
+            else return false;
+        if(o1 instanceof Float && o2 instanceof Float) 
+            if (o1.floatValue() > o2.floatValue()) return true;
+            else return false;
+        if(o1 instanceof Integer && o2 instanceof Integer) 
+            if (o1.intValue() > o2.intValue()) return true;
+            else return false;
+        return false;
+        
+        }
 
 }

@@ -1,6 +1,7 @@
 package org.junit.tests.assertion;
 
 import static org.hamcrest.CoreMatchers.equalTo;
+
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertArrayEquals;
@@ -22,7 +23,7 @@ import org.junit.ComparisonFailure;
 import org.junit.Test;
 import org.junit.function.ThrowingRunnable;
 import org.junit.internal.ArrayComparisonFailure;
-
+import static org.junit.Assert.assertTrue;
 /**
  * Tests for {@link org.junit.Assert}
  */
@@ -810,7 +811,7 @@ public class AssertionTest {
         try {
             assertNotEquals(value1, value2);
         } catch (AssertionError e) {
-            assertTrue(e.getMessage().contains(value1.toString()));
+            Assert.assertTrue(e.getMessage().contains(value1.toString()));
             return;
         }
 
@@ -1004,6 +1005,7 @@ public class AssertionTest {
         };
     }
 
+
   
  /*Aggiungere in org.junit.tests.assertion.AssertionTest
   *  un test che verifichi il funzionamento del metodo:
@@ -1019,6 +1021,52 @@ public class AssertionTest {
         Object o2 = new Object();
         assertEquals(o1, o2);
         
+    }
+
+
+    /*metodo:
+     *     public boolean assertGreaterThan(Number o1, Number o2) {
+        if(o1 instanceof Double && o2 instanceof Double) 
+            if (o1.doubleValue() > o2.doubleValue()) return true;
+            else return false;
+        if(o1 instanceof Float && o2 instanceof Float) 
+            if (o1.floatValue() > o2.floatValue()) return true;
+            else return false;
+        if(o1 instanceof Integer && o2 instanceof Integer) 
+            if (o1.intValue() > o2.intValue()) return true;
+            else return false;
+        return false;
+        
+        }
+     */
+    @Test
+     public void assertGreaterThan1() {
+      
+       /* Integer o1= new Integer();
+        Integer o2 = new Integer(ASSERTION_ERROR_EXPECTED);
+        Float o3= new Float(ASSERTION_ERROR_EXPECTED);
+        Float o4 = new Float(ASSERTION_ERROR_EXPECTED);
+        Double o5= new Double(ASSERTION_ERROR_EXPECTED);
+        Double o6 = new Double(ASSERTION_ERROR_EXPECTED);
+            assertTrue(o1, o2);
+            assertTrue(o3, o4);
+            assertTrue(o5, o6);
+      */
+            Integer o1 = new Integer(1);
+            Integer o2 = new Integer(1);
+            Float o3= new Float(1);
+            Float o4 = new Float(1);
+            Double o5= new Double(1);
+            Double o6 = new Double(1);
+            
+            
+           
+             assertEquals(o1, o2);
+             assertEquals(o3, o4);
+             assertEquals(o5, o6);
+            
+          
+    
     }
 
 }
