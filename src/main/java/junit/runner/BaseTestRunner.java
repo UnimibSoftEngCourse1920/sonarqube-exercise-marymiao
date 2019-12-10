@@ -14,6 +14,8 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.text.NumberFormat;
 import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import junit.framework.AssertionFailedError;
 import junit.framework.Test;
@@ -153,6 +155,13 @@ public abstract class BaseTestRunner implements TestListener {
      * returns the name of the suite class to run or null
      */
     protected String processArguments(String[] args) {
+    
+    // Create a Logger 
+    Logger logger 
+        = Logger.getLogger( 
+            BaseTestRunner.class.getName()); 
+    
+    
         String suiteName = null;
         for (int i = 0; i < args.length; i++) {
             if (args[i].equals("-noloading")) {
@@ -163,9 +172,9 @@ public abstract class BaseTestRunner implements TestListener {
                 if (args.length > i + 1) {
                     suiteName = extractClassName(args[i + 1]);
                 } else {
-                    System.out.println("Missing Test class name");
+                    logger.log(Level.WARNING, "Missing Test class name");
                 }
-                i++;
+                i++; //non conforme
             } else {
                 suiteName = args[i];
             }
@@ -185,7 +194,7 @@ public abstract class BaseTestRunner implements TestListener {
      */
     public String extractClassName(String className) {
         if (className.startsWith("Default package for")) {
-            return className.substring(className.lastIndexOf(".") + 1);
+            return className.substring(className.lastIndexOf('.') + 1);
         }
         return className;
     }
@@ -312,7 +321,7 @@ public abstract class BaseTestRunner implements TestListener {
                 "java.lang.reflect.Method.invoke("
         };
         for (int i = 0; i < patterns.length; i++) {
-            if (line.indexOf(patterns[i]) > 0) {
+            if (line.indexOf(patterns[i]) > -1) {
                 return true;
             }
         }
